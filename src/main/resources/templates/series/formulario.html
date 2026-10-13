@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova série</title>
+</head>
+<body>
+ <h1>Nova série</h1>
+ 
+ 
+<form action="/paginas/series/nova" method="post" th:object="${serie}">
+    <p>
+        <label for="nome">Nome</label>
+        <input type="text" th:field="*{nome}">
+    </p>
+    <p>
+        <label for="plataforma">Plataforma</label>
+        <input type="text" th:field="*{plataforma}">
+    </p>
+    <p>
+        <label for="anoLancamento">Ano de lançamento</label>
+        <input type="number" th:field="*{anoLancamento}">
+    </p>
+    <p>
+        <label for="genero">Gênero</label>
+        <input type="text" th:field="*{genero}">
+    </p>
+    <button type="submit">Cadastrar</button>
+</form>
+
+</body>
+</html>

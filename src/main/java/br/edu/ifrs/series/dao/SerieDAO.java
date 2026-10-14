@@ -5,8 +5,7 @@ import java.util.List;
 import br.edu.ifrs.series.dominio.Serie;
 
 public interface SerieDAO {
-	
-	
+		
     List<Serie> listarTodas();
     Serie buscarPorId(Long id);
     void salvar(Serie serie);

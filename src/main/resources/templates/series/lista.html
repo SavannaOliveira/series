@@ -1,16 +1,16 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
-    <table>
+    <table border="2">
         <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Plataforma</th>
-                <th>Ano</th>
-                <th>Gênero</th>
+            <tr >
+                <th> Nome </th>
+                <th> Plataforma </th>
+                <th> Ano </th>
+                <th> Gênero </th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="serie : ${series}">
+            <tr  th:each="serie : ${series}">
                 <td th:text="${serie.nome}">Nome</td>
                 <td th:text="${serie.plataforma}">Plataforma</td>
                 <td th:text="${serie.anoLancamento}">Ano</td>

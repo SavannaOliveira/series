@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nova série</title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
  <h1>Nova série</h1>
@@ -12,20 +13,24 @@
     <p>
         <label for="nome">Nome</label>
         <input type="text" th:field="*{nome}">
+        <span th:errors = "*{nome}"></span>
     </p>
     <p>
         <label for="plataforma">Plataforma</label>
         <input type="text" th:field="*{plataforma}">
+        <span th:errors = "*{plataforma}"></span>
     </p>
     <p>
         <label for="anoLancamento">Ano de lançamento</label>
         <input type="number" th:field="*{anoLancamento}">
+        <span th:errors = "*{anoLancamento}"></span>
     </p>
     <p>
         <label for="genero">Gênero</label>
         <input type="text" th:field="*{genero}">
+        <span th:errors = "*{genero}"></span>
     </p>
-    <button type="submit">Cadastrar</button>
+    <button type="submit">Atualizar</button>
 </form>
 
 </body>

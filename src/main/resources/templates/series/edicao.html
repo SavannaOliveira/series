@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+    <link rel="stylesheet" href="/src/">
+</head>
+<body>
+ <h1>Editar</h1>
+ 
+ 
+<form action="/paginas/series/editar" method="post" th:object="${serie}">
+	<input type="hidden" th:field="*{id}">
+	
+	
+    <p>
+        <label for="nome">Nome</label>
+        <input type="text" th:field="*{nome}">
+        <span th:errors = "*{nome}"></span>
+    </p>
+    <p>
+        <label for="plataforma">Plataforma</label>
+        <input type="text" th:field="*{plataforma}">
+        <span th:errors = "*{plataforma}"></span>
+    </p>
+    <p>
+        <label for="anoLancamento">Ano de lançamento</label>
+        <input type="number" th:field="*{anoLancamento}">
+        <span th:errors = "*{anoLancamento}"></span>
+    </p>
+    <p>
+        <label for="genero">Gênero</label>
+        <input type="text" th:field="*{genero}">
+        <span th:errors = "*{genero}"></span>
+    </p>
+    <button type="submit">Atualizar</button>
+</form>
+
+</body>

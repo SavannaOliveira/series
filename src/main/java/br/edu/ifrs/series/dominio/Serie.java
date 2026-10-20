@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.validation.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 @Entity
 public class Serie {
 	
@@ -12,9 +15,21 @@ public class Serie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private Long id;
+    @NotBlank(message = "Informe o nome da séries.")
+    
     private String nome;
+    
+    @NotBlank(message = "Informe o nome da plataforma.")
     private String plataforma;
-    private int anoLancamento;
+    
+
+    @NotNull(message = "Informe o ano de lançamento.")
+    @Min(value=1950, message = "O ano deve ser 1950 ou posterior.")
+    private Integer anoLancamento;
+    
+    @NotBlank(message = " Informe o gênero.")
+    private String genero;
+    
     public Long getId() {
 		return id;
 	}
@@ -33,10 +48,10 @@ public class Serie {
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
 	}
-	public int getAnoLancamento() {
+	public Integer getAnoLancamento() {
 		return anoLancamento;
 	}
-	public void setAnoLancamento(int anoLancamento) {
+	public void setAnoLancamento(Integer anoLancamento) {
 		this.anoLancamento = anoLancamento;
 	}
 	public String getGenero() {
@@ -45,8 +60,8 @@ public class Serie {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	private String genero;
-    public Serie() {
+	
+    public Serie(){
     }
    
 }

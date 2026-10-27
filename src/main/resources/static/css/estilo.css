@@ -1,10 +1,150 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 0 16px;
-    color: #fffafa;
-    background-color: #483d8b ;
-   
+/* Cyberpink violeta: paleta do projeto ALY-137. */
+:root {
+    color-scheme: dark;
+    --fundo: #03000d;
+    --painel: #07001a;
+    --campo: #11003e;
+    --violeta: #7e0eff;
+    --violeta-claro: #c49aff;
+    --texto: #f5efff;
+    --texto-suave: #c5b7df;
+    --borda: #4b237c;
 }
-
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--fundo); }
+body {
+    max-width: 1040px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: clamp(24px, 6vw, 72px) clamp(16px, 4vw, 40px);
+    color: var(--texto);
+    font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+    line-height: 1.6;
+    background:
+        radial-gradient(ellipse at top, #7e0eff1f, transparent 65%),
+        linear-gradient(#7e0eff07 1px, transparent 1px),
+        linear-gradient(90deg, #7e0eff07 1px, transparent 1px);
+    background-size: auto, 40px 40px, 40px 40px;
+}
+h1 {
+    max-width: 640px;
+    margin: 0 auto 28px;
+    padding-left: 18px;
+    border-left: 4px solid var(--violeta);
+    font-size: clamp(1.65rem, 4vw, 2.4rem);
+    line-height: 1.25;
+    letter-spacing: .04em;
+    text-shadow: 0 0 24px #7e0eff66;
+}
+body > form {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 36px);
+    border: 1px solid var(--violeta);
+    border-top-width: 3px;
+    border-radius: 4px 20px 4px 20px;
+    background: var(--painel);
+    box-shadow: 0 0 32px #7e0eff1f, inset 0 1px #c49aff22;
+}
+form p { margin: 0 0 22px; }
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--texto-suave);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+input:not([type="hidden"]), select, textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    outline: none;
+    color: var(--texto);
+    background: var(--campo);
+    font: inherit;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+input::placeholder, textarea::placeholder { color: #a896c2; }
+input:not([type="hidden"]):focus, select:focus, textarea:focus {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 0 3px #7e0eff33, 0 0 18px #7e0eff22;
+}
+form p > span:not(:empty) {
+    display: block;
+    margin-top: 7px;
+    color: #ffb3cd;
+    font-size: .85rem;
+}
+button, a {
+    transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+button {
+    min-height: 44px;
+    padding: 11px 22px;
+    border: 1px solid var(--violeta-claro);
+    border-radius: 4px 12px 4px 12px;
+    color: #fff;
+    background: #6500cf;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+body > form > button { width: 100%; margin-top: 4px; }
+button:hover { background: #7600eb; box-shadow: 0 0 20px #7e0eff55; }
+button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--violeta-claro);
+    outline-offset: 4px;
+}
+a {
+    color: var(--violeta-claro);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+a:hover { color: #fff; }
+table {
+    width: 100%;
+    border: 1px solid var(--violeta);
+    border-spacing: 0;
+    border-radius: 4px 16px 4px 16px;
+    background: var(--painel);
+    box-shadow: 0 0 32px #7e0eff1f;
+    overflow: hidden;
+}
+th, td {
+    padding: 16px;
+    border: 0;
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+th {
+    color: var(--violeta-claro);
+    background: var(--campo);
+    font-size: .8rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:nth-child(even) { background: #11003e66; }
+tbody tr:hover { background: #7e0eff14; }
+td:last-child a { display: inline-block; padding: 8px 0; }
+td form { display: inline-block; margin: 4px 0 4px 12px; }
+td button {
+    padding: 8px 12px;
+    border-color: var(--borda);
+    background: var(--campo);
+    font-size: .85rem;
+}
+@media (max-width: 640px) {
+    table { display: block; overflow-x: auto; }
+    th, td { min-width: 110px; padding: 12px; }
+    td:last-child { min-width: 140px; }
+    td form { display: block; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+}
